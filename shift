@@ -1,0 +1,13 @@
+echo "<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Прелендинг Казино</title>
+</head>
+<body>
+    <h1>Привет, игрок!</h1>
+    <a href='https://go.scityweb.com/click?pid=786&offer_id=38&sub2=vitbonv_KAZIK'>БОНУС 225 FC</a>
+    <a href='https://gguapromo.com/l/67901e2cac16b0e9740042d7?sub_id=%7Bvitbonv_KAZIK%7D'>БОНУС 600 FS🎁</a>
+    <a href='https://l29.caslworld.com/'>ВАШ ВЫИГРЫШ 300 FS🎁</a>
+</body>
+</html>" > index.html
