@@ -1,116 +1,96 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Вакансії та GGBET Казино</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: #fff;
-      overflow-x: hidden;
+    /* Root styles */
+    body { margin: 0; font-family: Arial, sans-serif; color: #fff; overflow-x: hidden; }
+
+    /* Sticky nav */
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: center; gap: 10px;
+      background: rgba(0,0,0,0.8); padding: 10px;
     }
-    .section {
-      position: relative;
-      padding: 100px 20px;
-      text-align: center;
-      overflow: hidden;
+    .nav a {
+      padding: 10px 20px; border-radius: 30px;
+      text-decoration: none; color: #fff;
+      background: #444;
+      transition: background 0.3s;
     }
+    .nav a.active, .nav a:hover { background: #ffcc00; color: #000; }
+
+    /* Sections */
+    section { position: relative; text-align: center; padding: 80px 20px; }
     .vacancies {
-      background: linear-gradient(135deg, #1f4037, #99f2c8, #1f4037);
-      background-size: 300% 300%;
-      animation: gradientVac 12s ease infinite;
+      background: linear-gradient(135deg,#1f4037,#99f2c8,#1f4037);
+      background-size:300% 300%;animation: gradVac 12s ease infinite;
     }
     .casino {
-      background: linear-gradient(135deg, #200122, #6f0000, #200122);
-      background-size: 300% 300%;
-      animation: gradientCas 12s ease infinite;
+      background: linear-gradient(135deg,#200122,#6f0000,#200122);
+      background-size:300% 300%;animation: gradCas 12s ease infinite;
     }
-    @keyframes gradientVac {
-      0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}
-    }
-    @keyframes gradientCas {
-      0%{background-position:100% 50%}50%{background-position:0% 50%}100%{background-position:100% 50%}
-    }
-    .section h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-      animation: appear 1s ease-out;
-    }
-    .section p {
-      font-size: 1.3em;
-      margin-bottom: 40px;
-      animation: appear 1.2s ease-out;
-    }
-    @keyframes appear {
-      from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);}  
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 30px;
-      background: #ffcc00;
-      color: #000;
-      font-size: 1.2em;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: appear 1.4s ease-out;
-    }
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-    .vacancy-btn {
-      background: #00bfff;
-      color: #fff;
-    }
-    .casino-btn {
-      background: #ff0000;
-      color: #fff;
-    }
-    .animated-shape {
-      position: absolute;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      animation: float 8s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% {transform: translateY(0) translateX(0);} 
-      50% {transform: translateY(-100px) translateX(50px);}  
+    @keyframes gradVac{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes gradCas{0%{background-position:100% 50%}50%{background-position:0% 50%}100%{background-position:100% 50%}}
+
+    /* Text */
+    h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow:0 2px 8px rgba(0,0,0,0.6); }
+    p { font-size:1.2em; margin-bottom: 30px; }
+
+    /* Buttons */
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:30px;
+      font-size:1.1em; text-decoration:none; font-weight:bold; transition:transform .3s,background .3s; }
+    .vacancy-btn { background:#00bfff; color:#fff; }
+    .casino-btn  { background:#ff0000; color:#fff; }
+    .btn:hover { transform:scale(1.1); }
+
+    /* Mobile tab content (hide one) */
+    @media (max-width: 600px) {
+      section { padding:60px 10px; }
+      .for-mobile { display: none; }
+      .for-mobile.active { display: block; }
     }
   </style>
 </head>
 <body>
-  <section class="section vacancies">
-    <!-- Динамічні кольорові фігури -->
-    <div class="animated-shape" style="width:60px;height:60px;top:10%;left:15%; background:rgba(255,255,255,0.15);"></div>
-    <div class="animated-shape" style="width:40px;height:40px;top:70%;left:85%; background:rgba(255,255,255,0.15);"></div>
-    <div class="animated-shape" style="width:80px;height:80px;top:50%;left:50%; background:rgba(255,255,255,0.1);"></div>
+  <nav class="nav">
+    <a href="#vacancies" class="tab-link active" data-target="vacancies">Вакансії</a>
+    <a href="#casino"    class="tab-link"        data-target="casino">Казино</a>
+  </nav>
+
+  <section id="vacancies" class="vacancies for-mobile active">
     <h1>Шукаєш нову роботу?</h1>
-    <p>Приєднуйся до нашого Telegram-каналу з вакансіями та отримуй найкращі пропозиції щодня!</p>
+    <p>Приєднуйся до Telegram-каналу з вакансіями та отримуй топ-пропозиції щодня!</p>
     <a class="btn vacancy-btn" href="https://t.me/+a9hROGRZrcs3YWUy" target="_blank">
       💼 Отримати вакансії ✨
     </a>
   </section>
 
-  <section class="section casino">
-    <!-- Динамічні кольорові фігури -->
-    <div class="animated-shape" style="width:70px;height:70px;top:25%;left:20%; background:rgba(255,215,0,0.2);"></div>
-    <div class="animated-shape" style="width:50px;height:50px;top:80%;left:75%; background:rgba(255,69,0,0.2);"></div>
-    <div class="animated-shape" style="width:90px;height:90px;top:60%;left:40%; background:rgba(255,255,255,0.1);"></div>
+  <section id="casino" class="casino for-mobile">
     <h1>GGBET Казино чекає!</h1>
-    <p>Бій Усика — <strong style="color:#FFD700;">став тут і вигравай</strong>! Отримуй бонуси до <strong>150 000 ₴</strong> при першому депозиті!</p>
+    <p>Бій Усика — <strong style="color:#FFD700;">став тут і вигравай</strong>!<br>Бонуси до <strong>150 000 ₴</strong> при першому депозиті!</p>
     <a class="btn casino-btn" href="https://gguapromo.com/l/685bf0b195f3ff9b1e069352?sub_id=%7Bsub_id_1%7D&click_id=%7Bclick_id%7D" target="_blank">
       🎰 Грати зараз 🔥
     </a>
   </section>
+
+  <script>
+    // Tabs for mobile
+    const tabs = document.querySelectorAll('.tab-link');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.preventDefault();
+        tabs.forEach(t=>t.classList.remove('active'));
+        document.querySelectorAll('.for-mobile').forEach(sec=>sec.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
+
 
 
