@@ -41,10 +41,22 @@
 
     /* Buttons */
     .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:30px;
-      font-size:1.1em; text-decoration:none; font-weight:bold; transition:transform .3s,background .3s;}
+      font-size:1.1em; text-decoration:none; font-weight:bold; transition:transform .3s,background .3s,box-shadow .3s;}
     .vacancy-btn { background:#00bfff; color:#fff; }
-    .bonus-btn   { background:#ff0000; color:#fff; }
+    .bonus-btn {
+      background: #ff4500;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255,69,0,0.7);
+      animation: pulse 2s infinite;
+    }
     .btn:hover { transform:scale(1.1); }
+
+    /* Pulse animation */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255,69,0,0.7); transform: scale(1); }
+      50% { box-shadow: 0 0 25px rgba(255,69,0,1); transform: scale(1.05); }
+      100% { box-shadow: 0 0 10px rgba(255,69,0,0.7); transform: scale(1); }
+    }
 
     /* Mobile tab content (hide one) */
     @media (max-width: 600px) {
@@ -91,6 +103,7 @@
   </script>
 </body>
 </html>
+
 
 </html>
 
