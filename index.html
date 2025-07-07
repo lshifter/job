@@ -18,20 +18,35 @@
       text-align: center;
       overflow: hidden;
     }
-    .section.vacancies {
-      background: linear-gradient(135deg, #1f4037, #99f2c8);
+    .vacancies {
+      background: linear-gradient(135deg, #1f4037, #99f2c8, #1f4037);
+      background-size: 300% 300%;
+      animation: gradientVac 12s ease infinite;
     }
-    .section.casino {
-      background: linear-gradient(135deg, #200122, #6f0000);
+    .casino {
+      background: linear-gradient(135deg, #200122, #6f0000, #200122);
+      background-size: 300% 300%;
+      animation: gradientCas 12s ease infinite;
+    }
+    @keyframes gradientVac {
+      0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}
+    }
+    @keyframes gradientCas {
+      0%{background-position:100% 50%}50%{background-position:0% 50%}100%{background-position:100% 50%}
     }
     .section h1 {
       font-size: 3em;
       margin-bottom: 20px;
       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      animation: appear 1s ease-out;
     }
     .section p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       margin-bottom: 40px;
+      animation: appear 1.2s ease-out;
+    }
+    @keyframes appear {
+      from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);}  
     }
     .btn {
       display: inline-flex;
@@ -45,16 +60,17 @@
       border-radius: 50px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
       transition: transform 0.3s, box-shadow 0.3s;
+      animation: appear 1.4s ease-out;
     }
     .btn:hover {
       transform: scale(1.1);
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
-    .btn.vacancy {
+    .vacancy-btn {
       background: #00bfff;
       color: #fff;
     }
-    .btn.casino {
+    .casino-btn {
       background: #ff0000;
       color: #fff;
     }
@@ -65,38 +81,36 @@
       animation: float 8s ease-in-out infinite;
     }
     @keyframes float {
-      0% {transform: translateY(0) translateX(0); opacity: 0.7;}
-      50% {transform: translateY(-100px) translateX(50px); opacity: 0.3;}
-      100% {transform: translateY(0) translateX(0); opacity: 0.7;}
+      0%,100% {transform: translateY(0) translateX(0);} 
+      50% {transform: translateY(-100px) translateX(50px);}  
     }
   </style>
 </head>
 <body>
   <section class="section vacancies">
-    <!-- Динамічні фігури -->
-    <div class="animated-shape" style="width:50px;height:50px;top:20%;left:10%;animation-delay:0s;"></div>
-    <div class="animated-shape" style="width:30px;height:30px;top:70%;left:80%;animation-delay:2s;"></div>
-    <div class="animated-shape" style="width:40px;height:40px;top:50%;left:50%;animation-delay:4s;"></div>
-    <div class="animated-shape" style="width:60px;height:60px;top:30%;left:70%;animation-delay:6s;"></div>
+    <!-- Динамічні кольорові фігури -->
+    <div class="animated-shape" style="width:60px;height:60px;top:10%;left:15%; background:rgba(255,255,255,0.15);"></div>
+    <div class="animated-shape" style="width:40px;height:40px;top:70%;left:85%; background:rgba(255,255,255,0.15);"></div>
+    <div class="animated-shape" style="width:80px;height:80px;top:50%;left:50%; background:rgba(255,255,255,0.1);"></div>
     <h1>Шукаєш нову роботу?</h1>
     <p>Приєднуйся до нашого Telegram-каналу з вакансіями та отримуй найкращі пропозиції щодня!</p>
-    <a class="btn vacancy" href="https://t.me/YourVacancyChannel" target="_blank">
+    <a class="btn vacancy-btn" href="https://t.me/YourVacancyChannel" target="_blank">
       💼 Отримати вакансії ✨
     </a>
   </section>
 
   <section class="section casino">
-    <!-- Динамічні фігури -->
-    <div class="animated-shape" style="width:50px;height:50px;top:25%;left:80%;animation-delay:1s;"></div>
-    <div class="animated-shape" style="width:30px;height:30px;top:80%;left:20%;animation-delay:3s;"></div>
-    <div class="animated-shape" style="width:40px;height:40px;top:60%;left:40%;animation-delay:5s;"></div>
-    <div class="animated-shape" style="width:60px;height:60px;top:40%;left:60%;animation-delay:7s;"></div>
+    <!-- Динамічні кольорові фігури -->
+    <div class="animated-shape" style="width:70px;height:70px;top:25%;left:20%; background:rgba(255,215,0,0.2);"></div>
+    <div class="animated-shape" style="width:50px;height:50px;top:80%;left:75%; background:rgba(255,69,0,0.2);"></div>
+    <div class="animated-shape" style="width:90px;height:90px;top:60%;left:40%; background:rgba(255,255,255,0.1);"></div>
     <h1>GGBET Казино чекає!</h1>
-    <p>Отримуй бонуси до <strong>150 000 ₴</strong> при першому депозиті – грай та вигравай!</p>
-    <a class="btn casino" href="https://gguapromo.com/l/685bf0b195f3ff9b1e069352?sub_id=%7Bsub_id_1%7D&click_id=%7Bclick_id%7D" target="_blank">
+    <p>Бій Усика — <strong style="color:#FFD700;">став тут і вигравай</strong>! Отримуй бонуси до <strong>150 000 ₴</strong> при першому депозиті!</p>
+    <a class="btn casino-btn" href="https://gguapromo.com/l/685bf0b195f3ff9b1e069352?sub_id=%7Bsub_id_1%7D&click_id=%7Bclick_id%7D" target="_blank">
       🎰 Грати зараз 🔥
     </a>
   </section>
 </body>
 </html>
+
 
