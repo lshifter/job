@@ -1,151 +1,152 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вакансії та Грошовий бонус</title>
-  <style>
-    /* Сброс отступов */
-    * { margin:0; padding:0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; color:#fff; overflow:hidden; }
-    /* Фон с частицами займёт весь экран */
-    #particle-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
-    /* Навигация */
-    .nav { position:sticky; top:0; display:flex; justify-content:center; gap:12px; background:rgba(0,0,0,0.85); padding:12px; z-index:10; }
-    .nav a {
-      position:relative; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:bold;
-      color:#fff; background:#333; transition: transform .3s, background .3s, box-shadow .3s;
-    }
-    .nav a.vacancy-tab { background:#333; }
-    .nav a.bonus-tab {
-      background:#FFD700; color:#000;
-      box-shadow:0 0 12px rgba(255,215,0,0.8);
-      animation:pulse 2s infinite;
-    }
-    .nav a:hover { transform:scale(1.05); }
-    .nav a.active.vacancy-tab { background:#444; }
-    .nav a.active.bonus-tab {
-      background:#ffcc00; transform:scale(1.1); box-shadow:0 0 16px rgba(255,204,0,1);
-    }
-    @keyframes pulse { 
-      0% { box-shadow:0 0 8px rgba(255,215,0,0.7); }
-      50% { box-shadow:0 0 20px rgba(255,215,0,1); }
-      100% { box-shadow:0 0 8px rgba(255,215,0,0.7); }
-    }
-    /* Секции */
-    section {
-      position:absolute; top:64px; left:0; width:100%; height:calc(100vh - 64px);
-      display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-      opacity:0; pointer-events:none; transition:opacity .6s ease;
-    }
-    section.active { opacity:1; pointer-events:auto; }
-    /* Градиенты */
-    .vacancies { background:linear-gradient(135deg,#1f4037,#99f2c8,#1f4037); background-size:300% 300%; animation:gradVac 15s ease infinite; }
-    .bonus     { background:linear-gradient(135deg,#200122,#6f0000,#200122); background-size:300% 300%; animation:gradCas 15s ease infinite; }
-    @keyframes gradVac { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
-    @keyframes gradCas { 0%{background-position:100% 50%}50%{background-position:0% 50%}100%{background-position:100% 50%} }
-    /* Заголовки */
-    h1 { font-size:2.8em; margin-bottom:16px; animation:glow 3s ease-in-out infinite; }
-    @keyframes glow { 0%,100%{text-shadow:0 0 8px rgba(255,255,255,0.8);}50%{text-shadow:0 0 20px rgba(255,215,0,1);} }
-    p { font-size:1.2em; margin-bottom:32px; }
-    /* Кнопки */
-    .btn {
-      position:relative; display:inline-flex; align-items:center; gap:8px; padding:12px 28px;
-      border-radius:30px; font-size:1.1em; font-weight:bold; text-decoration:none; transition:transform .2s;
-      overflow:hidden;
-    }
-    .vacancy-btn { background:#00bfff; color:#fff; box-shadow:0 4px 8px rgba(0,191,255,0.6); }
-    .bonus-btn   { background:#ff4500; color:#fff; box-shadow:0 4px 12px rgba(255,69,0,0.7); animation:pulse 2s infinite; }
-    .btn:hover { transform:scale(1.05); }
-    /* Ripple эффект */
-    .ripple {
-      position:absolute; border-radius:50%; background:rgba(255,255,255,0.7);
-      transform:scale(0); animation:ripple 0.6s linear;
-    }
-    @keyframes ripple { to { transform:scale(4); opacity:0; } }
-    /* Адаптив */
-    @media (max-width:600px) {
-      h1 { font-size:2em; }
-      p  { font-size:1em; }
-      .btn { padding:10px 20px; font-size:1em; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work UA - Пошук роботи онлайн</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas id="particle-canvas"></canvas>
+    <div class="container">
+        <!-- Animated background elements -->
+        <div class="background-animation">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
 
-  <nav class="nav">
-    <a href="#vacancies" class="tab-link vacancy-tab active" data-target="vacancies">Вакансії</a>
-    <a href="#bonus" class="tab-link bonus-tab" data-target="bonus">Грошовий бонус 💰</a>
-  </nav>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Work UA</h1>
+                        <p>Знайди роботу мрії</p>
+                    </div>
+                </div>
+                <nav class="navigation">
+                    <a href="#jobs" class="nav-link">Вакансії</a>
+                    <a href="#companies" class="nav-link">Компанії</a>
+                    <a href="#about" class="nav-link">Про нас</a>
+                    <a href="#contact" class="nav-link">Контакти</a>
+                </nav>
+            </div>
+        </header>
 
-  <section id="vacancies" class="vacancies active">
-    <h1>Шукаєш нову роботу?</h1>
-    <p>Отримай роботу швидко та легко — приєднуйся до нашого Telegram-каналу!</p>
-    <a class="btn vacancy-btn" href="https://t.me/+a9hROGRZrcs3YWUy" target="_blank">💼 Отримати вакансії ✨</a>
-  </section>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Знайди роботу своєї мрії</h2>
+                
 
-  <section id="bonus" class="bonus">
-    <h1>Грошовий бонус чекає! 💸</h1>
-    <p>Бій Усика — <strong style="color:#FFD700;">став тут і вигравай</strong>!<br>Бонуси до <strong>150 000 ₴</strong> при першому депозиті!</p>
-    <a class="btn bonus-btn" href="https://gamehub.g2afse.com/click?pid=3751&offer_id=822&sub1=video1" target="_blank">🎰 Отримати бонус 🔥</a>
-  </section>
+            </div>
+        </section>
 
-  <script>
-    // фон с частицами
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    function init() {
-      canvas.width = innerWidth; canvas.height = innerHeight;
-      particles = Array.from({length:120},() => ({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*3+1,
-        d: Math.random()*1.5+0.5
-      }));
-    }
-    function draw() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle = 'rgba(255,255,255,0.5)';
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-        ctx.fill();
-        p.y += p.d;
-        if (p.y > canvas.height) p.y = 0;
-      });
-      requestAnimationFrame(draw);
-    }
-    window.addEventListener('resize', init);
-    init(); draw();
+        <!-- Jobs Section -->
+        <section class="jobs-section" id="jobs">
+            <div class="jobs-content">
+                <div class="section-header">
+                    <h3>Актуальні вакансії</h3>
+                    <p>Обери роботу, яка тобі підходить</p>
+                </div>
 
-    // ripple-эффект на кнопках
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const span = document.createElement('span');
-        span.className = 'ripple';
-        btn.append(span);
-        const d = Math.max(btn.clientWidth, btn.clientHeight);
-        span.style.width = span.style.height = d + 'px';
-        const rect = btn.getBoundingClientRect();
-        span.style.left = e.clientX - rect.left - d/2 + 'px';
-        span.style.top = e.clientY - rect.top - d/2 + 'px';
-        setTimeout(() => span.remove(), 600);
-      });
-    });
+                <div class="jobs-grid" id="jobsGrid">
+                    <!-- Job cards will be inserted here by JavaScript -->
+                </div>
 
-    // табы
-    document.querySelectorAll('.tab-link').forEach(tab => {
-      tab.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(tab.dataset.target).classList.add('active');
-      });
-    });
-  </script>
+                <div class="no-results" id="noResults">
+                    <div class="no-results-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </div>
+                    <h3>Вакансій не знайдено</h3>
+                    <p>Спробуйте змінити критерії пошуку</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Work UA</h3>
+                    </div>
+                    <p class="footer-description">
+                        Ми допомагаємо людям знаходити роботу мрії та компаніям - талановитих співробітників. 
+                        Наша платформа об'єднує тисячі вакансій від провідних роботодавців.
+                    </p>
+                    <div class="social-links">
+                        <div class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <div class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Компанія</h4>
+                        <ul>
+                            <li><a href="#about">Про нас</a></li>
+                            <li><a href="#team">Наша команда</a></li>
+                            <li><a href="#careers">Кар'єра</a></li>
+                            <li><a href="#news">Новини</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Підтримка</h4>
+                        <ul>
+                            <li><a href="#help">Центр допомоги</a></li>
+                            <li><a href="#contact">Контакти</a></li>
+                            <li><a href="#privacy">Політика конфіденційності</a></li>
+                            <li><a href="#terms">Умови використання</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Work UA. Всі права захищені.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
