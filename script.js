@@ -9,7 +9,7 @@ const jobs = [
         salary: "від 10,000 грн",
         description: "Перегляд та оцінка відеоконтенту. Гнучкий графік роботи, можливість працювати з дому.",
         requirements: ["Уважність", "Стабільний інтернет"],
-        telegramLink: "https://t.me/+2xrV01QR3Qk1NzYy",
+        telegramLink: "https://t.me/+3H-dtQOgWHIxMDBi",
         icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                 <circle cx="12" cy="12" r="3"/>
