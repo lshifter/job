@@ -9,7 +9,7 @@ const jobs = [
         salary: "від 10,000 грн",
         description: "Перегляд та оцінка відеоконтенту. Гнучкий графік роботи, можливість працювати з дому.",
         requirements: ["Уважність", "Стабільний інтернет"],
-        telegramLink: "https://t.me/+3H-dtQOgWHIxMDBi",
+        telegramLink: "https://t.me/+QbkwMbuesBtkZGU8",
         icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                 <circle cx="12" cy="12" r="3"/>
@@ -40,7 +40,7 @@ const jobs = [
         salary: "від 15,000 грн",
         description: "Написання якісних та чесних відгуків про товари та послуги для онлайн-магазинів. Потрібна уважність та об'єктивність.",
         requirements: ["Уважність", "Грамотність", "Об'єктивність"],
-        telegramLink: "https://t.me/+cXdA9EM69po3YzY6",
+        telegramLink: "https://t.me/+vDdW7mQ4GKY2YmEy",
         icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
                 <polyline points="14 2 14 8 20 8"/>
@@ -78,7 +78,7 @@ const jobs = [
         salary: "від 14,000 грн",
         description: "Наклеювання етикеток та наклейок на стаканчики для кав'ярень. Матеріали доставляються поштою. Потрібна акуратність та швидкість.",
         requirements: ["Акуратність", "Швидкість", "Посидючість"],
-        telegramLink: "https://t.me/+6pNYRVLlFzc3ZTQ6",
+        telegramLink: "https://t.me/+Kmt4Xrr7MgthMTVi",
         icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                 <polyline points="14 2 14 8 20 8"/>
